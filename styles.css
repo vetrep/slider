@@ -1,0 +1,26 @@
+.slider {
+    position: relative;
+    box-shadow: 0 0 6px 0 #ccc;
+    min-height: 48px;
+}
+
+.slider__prev,
+.slider__next {
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 32px;
+    width: 32px;
+    height: 32px;
+}
+
+.slider__prev {
+    left: 6px;
+    box-shadow: -2px 0 6px 0 #ccc;
+}
+
+.slider__next {
+    right: 6px;
+    box-shadow: 2px 0 6px 0 #ccc;
+}
