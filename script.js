@@ -21,16 +21,16 @@
             }
 
             const nextSlide = this.slides[this.currentSliderIndex];
-            nextSlide.classList.remove('animation');
+            nextSlide.classList.remove('animation_opacity');
             nextSlide.style.zIndex = 1;
-            nextSlide.style.left = 0;
+            nextSlide.style.opacity = 1;
 
             setTimeout(() => {
                 nextSlide.style.zIndex = 2;
             }, SliderCollection.ANIMATION_TIME);
 
-            currentSlide.classList.add('animation');
-            currentSlide.style.left = '-100%';
+            currentSlide.classList.add('animation_opacity');
+            currentSlide.style.opacity = '0';
         }
 
         toNext() {
@@ -43,16 +43,16 @@
             }
 
             const nextSlide = this.slides[this.currentSliderIndex];
-            nextSlide.classList.remove('animation');
+            nextSlide.classList.remove('animation_opacity');
             nextSlide.style.zIndex = 1;
-            nextSlide.style.left = 0;
+            nextSlide.style.opacity = 1;
 
             setTimeout(() => {
                 nextSlide.style.zIndex = 2;
             }, SliderCollection.ANIMATION_TIME);
 
-            currentSlide.classList.add('animation');
-            currentSlide.style.left = '100%';
+            currentSlide.classList.add('animation_opacity');
+            currentSlide.style.opacity = '0';
         }
     }
 

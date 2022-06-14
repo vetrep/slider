@@ -53,3 +53,7 @@
 .animation {
     transition: left 500ms;
 }
+
+.animation_opacity {
+    transition: opacity 500ms;
+}
