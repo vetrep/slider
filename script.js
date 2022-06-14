@@ -22,7 +22,7 @@
             nextSlide.style.zIndex = 1;
             nextSlide.style.left = 0;
 
-            currentSlide.style.left = '100%';
+            currentSlide.style.left = '-100%';
         }
 
         toNext() {
@@ -35,9 +35,11 @@
             }
 
             const nextSlide = this.slides[this.currentSliderIndex];
+            nextSlide.classList.remove('animation');
             nextSlide.style.zIndex = 1;
             nextSlide.style.left = 0;
 
+            currentSlide.classList.add('animation');
             currentSlide.style.left = '100%';
         }
     }
