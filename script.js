@@ -2,6 +2,8 @@
 
 (() => {
     class SliderCollection {
+        static ANIMATION_TIME = 500;
+
         constructor(sliders) {
             this.slides = sliders;
             this.currentSliderIndex = 0;
@@ -19,9 +21,15 @@
             }
 
             const nextSlide = this.slides[this.currentSliderIndex];
+            nextSlide.classList.remove('animation');
             nextSlide.style.zIndex = 1;
             nextSlide.style.left = 0;
 
+            setTimeout(() => {
+                nextSlide.style.zIndex = 2;
+            }, SliderCollection.ANIMATION_TIME);
+
+            currentSlide.classList.add('animation');
             currentSlide.style.left = '-100%';
         }
 
@@ -39,6 +47,10 @@
             nextSlide.style.zIndex = 1;
             nextSlide.style.left = 0;
 
+            setTimeout(() => {
+                nextSlide.style.zIndex = 2;
+            }, SliderCollection.ANIMATION_TIME);
+
             currentSlide.classList.add('animation');
             currentSlide.style.left = '100%';
         }
@@ -54,13 +66,17 @@
 
     const sliderCollection = new SliderCollection(slides);
 
+    let lastTime = 0;
+
     slider.addEventListener('click', (event) => {
         const { target } = event;
+        const currentTime = Date.now();
 
-        if (!isButtonElement(target)) {
+        if (!isButtonElement(target) || currentTime - lastTime < SliderCollection.ANIMATION_TIME) {
             return;
         }
 
+        lastTime = currentTime;
         const direction = target.getAttribute('role');
 
         switch (direction) {
